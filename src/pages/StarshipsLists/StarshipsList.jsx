@@ -12,18 +12,19 @@ const StarshipsList = (props) => {
   
   return ( 
     <>
-      <h1>Starship Page</h1>
-      <div>
+      <h1>STAR WARS STARSHIPS</h1>
+      <div class="button-container">
         {starshipsList.map((starship) => (
-          <button>
+          <div class="starship-button">
             <Link
               to="/starship"
               state={{ starship }}
               key={starship.name}
+              class="starship-link"
             >
               {starship.name}
             </Link>
-          </button>
+          </div>
         ))}
       </div>
     </>
