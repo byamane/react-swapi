@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getStarshipDetails } from '../../services/sw-api';
+import PilotList from '../../components/PilotList/PilotList';
 
 
 const StarshipDetails = () => {
@@ -14,13 +15,27 @@ const StarshipDetails = () => {
 
   return ( 
     <>
-      {StarshipDetails.name ?
+      {starshipDetails.name ?
         <div>  
           <h1>{starshipDetails.name} Details</h1>
-            <div class="starship-details">
+            <div className="starship-details">
               <h2>NAME: {starshipDetails.name}</h2>
               <h2>MODEL: {starshipDetails.model}</h2>
-              <a class="return-link" href='/'><h2>RETURN</h2></a>
+              <h2>PILOTS:</h2>
+                {starshipDetails.pilots.length ?
+                  <>
+                    <h2>
+                      <PilotList pilots={starshipDetails.pilots} />
+                    </h2>
+                  </>
+                  :
+                  <>
+                    <h3>No Pilots for this Starship</h3>
+                  </>
+                } 
+              <a className="return-link" href='/'>
+                <h2>RETURN</h2>
+              </a>
             </div>
         </div>
         :

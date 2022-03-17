@@ -13,14 +13,14 @@ const StarshipsList = (props) => {
   return ( 
     <>
       <h1>STAR WARS STARSHIPS</h1>
-      <div class="button-container">
+      <div className="button-container">
         {starshipsList.map((starship) => (
-          <div class="starship-button">
+          <div className="starship-button">
             <Link
               to="/starship"
               state={{ starship }}
               key={starship.name}
-              class="starship-link"
+              className="starship-link"
             >
               {starship.name}
             </Link>
